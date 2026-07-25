@@ -1,4 +1,4 @@
-# Come Lo Smash
+# Com'è lo smash?
 
 This project is a simple "come lo smash" button site.
 
