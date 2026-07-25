@@ -1,31 +1,24 @@
-import {
-  getAssetFromKV,
-  mapRequestToAsset,
-} from "@cloudflare/kv-asset-handler";
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
 
-const assetManifest = {
-  version: "1",
+    let pathname = url.pathname;
+    if (pathname === "/") {
+      pathname = "/index.html";
+    }
+
+    const assetUrl = new URL(pathname + url.search, url.origin);
+    const assetRequest = new Request(assetUrl, request);
+    const response = await env.ASSETS.fetch(assetRequest);
+
+    if (response.status === 404) {
+      const fallbackRequest = new Request(new URL("/index.html", url.origin), request);
+      const fallbackResponse = await env.ASSETS.fetch(fallbackRequest);
+      if (fallbackResponse.status < 500) {
+        return fallbackResponse;
+      }
+    }
+
+    return response;
+  },
 };
-
-addEventListener("fetch", (event) => {
-  event.respondWith(handleEvent(event));
-});
-
-async function handleEvent(event) {
-  const url = new URL(event.request.url);
-
-  if (url.pathname === "/") {
-    url.pathname = "/index.html";
-  }
-
-  try {
-    return await getAssetFromKV(event, {
-      mapRequestToAsset: (req) =>
-        mapRequestToAsset(req, { cacheControl: "public, max-age=31536000" }),
-      ASSET_NAMESPACE: globalThis.__STATIC_CONTENT,
-      ASSET_MANIFEST: assetManifest,
-    });
-  } catch (e) {
-    return new Response("Not Found", { status: 404 });
-  }
-}
