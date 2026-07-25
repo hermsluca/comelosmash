@@ -18,6 +18,7 @@
       }
       main {
         display: flex;
+        flex-direction: column;
         height: 100dvh;
         justify-content: center;
         align-items: center;
@@ -25,6 +26,7 @@
       }
       button {
         padding: 0.75rem 1.2rem;
+        margin: 0.5rem;
         font-size: 1rem;
         cursor: pointer;
       }
@@ -41,7 +43,8 @@
   </head>
   <body>
     <main>
-      <button id="actionButton">Com'è lo smash?</button>
+      <button id="comeloButton">Com'è lo smash?</button>
+      <button id="consigliButton">Lo consigli?</button>
       <a
         href="https://www.instagram.com/paninoteca_da_daniele/"
         target="_blank"
@@ -51,11 +54,18 @@
     </main>
 
     <script>
-      const actionButton = document.getElementById("actionButton");
-      const sound = new Audio("/sound.mp3");
+      const comelo = new Audio("/sounds/comelo.mp3");
+      const consigli = new Audio("/sounds/consigli.mp3");
 
-      actionButton.addEventListener("click", () => {
-        sound.play();
+      const comeloButton = document.getElementById("comeloButton");
+      const consigliButton = document.getElementById("consigliButton");
+
+      comeloButton.addEventListener("click", () => {
+        comelo.play();
+      });
+
+      consigliButton.addEventListener("click", () => {
+        consigli.play();
       });
     </script>
   </body>
