@@ -11,3 +11,14 @@
 
 # Logs
 *.log
+
+# Node.js
+node_modules/
+npm-debug.log*
+
+# Cloudflare Wrangler
+.wrangler/
+
+# Build output
+/dist/
+/build/
