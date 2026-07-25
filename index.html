@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comelo Smash</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 0;
+        padding: 2rem;
+        background: #f7f7f7;
+      }
+      main {
+        display: flex;
+        height: 100dvh;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+      }
+      button {
+        padding: 0.75rem 1.2rem;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <button id="actionButton">Com'è lo smash?</button>
+    </main>
+
+    <script>
+      const actionButton = document.getElementById("actionButton");
+      const sound = new Audio("sound.mp3");
+
+      actionButton.addEventListener("click", () => {
+        sound.play();
+      });
+    </script>
+  </body>
+</html>
