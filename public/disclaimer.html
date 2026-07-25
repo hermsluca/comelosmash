@@ -6,7 +6,7 @@
     <meta name="color-scheme" content="light dark" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-    <title>Com'è lo smash</title>
+    <title>Com'è lo smash | Disclaimer</title>
     <style>
       :root {
         color-scheme: light dark;
@@ -23,6 +23,7 @@
         justify-content: center;
         align-items: center;
         margin: 0 auto;
+        padding: 1rem;
       }
       button {
         padding: 0.75rem 1.2rem;
@@ -48,12 +49,19 @@
   </head>
   <body>
     <main>
-      <button id="comeloButton">Com'è lo smash?</button>
-      <button id="consigliButton">Lo consigli?</button>
-    </main>
-
+      <h1>Disclaimer</h1>
+      <p>
+        This website is not affiliated with or endorsed by Paninoteca da Daniele.
+        It was created as a lighthearted, humorous tribute to a meme that amused the publisher.
+      </p>
+      <p>
+        The site is not intended to insult, attack, or harm anyone. It was made for fun because the sound and style of the meme were funny and memorable. ❤️
+      </p>
+      <p>
+        The information on this page is shared for general informational purposes only.
+      </p>
     <footer>
-      <a href="./disclaimer.html">Disclaimer</a>
+      <a href="index.html">Back</a>
       <a
         href="https://www.instagram.com/paninoteca_da_daniele/"
         target="_blank"
@@ -61,21 +69,5 @@
         Instagram: Paninoteca da Daniele
       </a>
     </footer>
-
-    <script>
-      const comelo = new Audio("/sounds/comelo.mp3");
-      const consigli = new Audio("/sounds/consigli.mp3");
-
-      const comeloButton = document.getElementById("comeloButton");
-      const consigliButton = document.getElementById("consigliButton");
-
-      comeloButton.addEventListener("click", () => {
-        comelo.play();
-      });
-
-      consigliButton.addEventListener("click", () => {
-        consigli.play();
-      });
-    </script>
   </body>
 </html>
