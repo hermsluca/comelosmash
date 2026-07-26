@@ -10,6 +10,8 @@ This site is not meant to insult or attack anyone. It was created only because t
 
 There is no bad intention behind this project. It is simply a lighthearted, humorous tribute to a meme that amused us. ❤️
 
+Original website: https://comelosmash.it
+
 ## Cloudflare Worker support
 
 This project now includes a basic Cloudflare Worker setup so it can be deployed as a static site with Workers.
