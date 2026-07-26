@@ -2,10 +2,11 @@
   color-scheme: light dark;
 }
 
-body {
+html, body {
   font-family: system-ui, sans-serif;
   margin: 0;
   background: #f7f7f7;
+  overflow: hidden;
 }
 
 main {
