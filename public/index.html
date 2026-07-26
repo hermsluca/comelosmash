@@ -28,6 +28,7 @@
     <main>
       <button id="comeloButton">Com'è lo smash?</button>
       <button id="consigliButton">Lo consigli?</button>
+      <button id="dadoveButton">Da dove veniamo?</button>
     </main>
 
     <footer>
@@ -43,9 +44,11 @@
     <script>
       const comelo = new Audio("/sounds/comelo.mp3");
       const consigli = new Audio("/sounds/consigli.mp3");
+      const dadove = new Audio("/sounds/dadove.mp3");
 
       const comeloButton = document.getElementById("comeloButton");
       const consigliButton = document.getElementById("consigliButton");
+      const dadoveButton = document.getElementById("dadoveButton");
 
       comeloButton.addEventListener("click", () => {
         comelo.play();
@@ -53,6 +56,10 @@
 
       consigliButton.addEventListener("click", () => {
         consigli.play();
+      });
+
+      dadoveButton.addEventListener("click", () => {
+        dadove.play();
       });
     </script>
   </body>
