@@ -2,17 +2,17 @@
   color-scheme: light dark;
 }
 
-html, body {
+html,
+body {
   font-family: system-ui, sans-serif;
   margin: 0;
   background: #f7f7f7;
-  overflow: hidden;
 }
 
 main {
   display: flex;
   flex-direction: column;
-  height: 100dvh;
+  min-height: calc(100dvh - 8rem);
   justify-content: center;
   align-items: center;
   margin: 0 auto;
@@ -28,14 +28,18 @@ button {
   max-width: 15rem;
 }
 
+button[aria-pressed="true"] {
+  transform: scale(0.97);
+  filter: brightness(0.85);
+}
+
 footer {
-  bottom: 1rem;
   width: 100%;
-  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 1rem;
 }
 
 footer a {

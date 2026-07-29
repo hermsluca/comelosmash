@@ -56,42 +56,61 @@
   </head>
   <body>
     <main>
-      <button id="comeloButton">Com'è lo smash?</button>
-      <button id="consigliButton">Lo consigli?</button>
-      <button id="dadoveButton">Da dove veniamo?</button>
+      <button type="button" data-sound="comelo" aria-pressed="false">
+        Com'è lo smash?
+      </button>
+      <button type="button" data-sound="consigli" aria-pressed="false">
+        Lo consigli?
+      </button>
+      <button type="button" data-sound="dadove" aria-pressed="false">
+        Da dove veniamo?
+      </button>
     </main>
 
     <footer>
       <a href="./disclaimer.html">Disclaimer</a>
-      <a href="https://comelosmash.it" target="_blank">comelosmash.it</a>
+      <a href="https://comelosmash.it" target="_blank" rel="noopener noreferrer">
+        comelosmash.it
+      </a>
       <a
         href="https://www.instagram.com/paninoteca_da_daniele/"
         target="_blank"
+        rel="noopener noreferrer"
       >
         Instagram: Paninoteca da Daniele
       </a>
     </footer>
 
     <script>
-      const comelo = new Audio("/sounds/comelo.mp3");
-      const consigli = new Audio("/sounds/consigli.mp3");
-      const dadove = new Audio("/sounds/dadove.mp3");
+      const sounds = new Map(
+        [...document.querySelectorAll("[data-sound]")].map((button) => {
+          const audio = new Audio(`/sounds/${button.dataset.sound}.mp3`);
 
-      const comeloButton = document.getElementById("comeloButton");
-      const consigliButton = document.getElementById("consigliButton");
-      const dadoveButton = document.getElementById("dadoveButton");
+          audio.addEventListener("ended", () => {
+            button.setAttribute("aria-pressed", "false");
+          });
 
-      comeloButton.addEventListener("click", () => {
-        comelo.play();
-      });
+          return [button, audio];
+        }),
+      );
 
-      consigliButton.addEventListener("click", () => {
-        consigli.play();
-      });
+      for (const [button, audio] of sounds) {
+        button.addEventListener("click", async () => {
+          for (const [otherButton, otherAudio] of sounds) {
+            otherAudio.pause();
+            otherButton.setAttribute("aria-pressed", "false");
+          }
 
-      dadoveButton.addEventListener("click", () => {
-        dadove.play();
-      });
+          audio.currentTime = 0;
+          button.setAttribute("aria-pressed", "true");
+
+          try {
+            await audio.play();
+          } catch {
+            button.setAttribute("aria-pressed", "false");
+          }
+        });
+      }
     </script>
   </body>
 </html>
