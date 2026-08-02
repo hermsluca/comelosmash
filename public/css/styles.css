@@ -7,12 +7,12 @@ body {
   font-family: system-ui, sans-serif;
   margin: 0;
   background: #f7f7f7;
+  min-height: 100dvh;
 }
 
 main {
   display: flex;
   flex-direction: column;
-  min-height: calc(100dvh);
   justify-content: center;
   align-items: center;
   margin: 0 auto;
