@@ -34,12 +34,13 @@ button[aria-pressed="true"] {
 }
 
 footer {
+  position: absolute;
+  bottom: 1rem;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 1rem;
 }
 
 footer a {
