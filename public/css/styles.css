@@ -15,7 +15,8 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  min-height: 100dvh;
+  box-sizing: border-box;
   padding: 1rem;
 }
 
