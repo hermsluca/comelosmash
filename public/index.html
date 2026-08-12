@@ -66,13 +66,13 @@
       <p>È buono? Lo consigli? Da dove vieni?</p>
     </header>
     <main>
-      <button type="button" data-sound="comelo" aria-pressed="false">
+      <button type="button" data-sound="comelo">
         Com'è lo smash?
       </button>
-      <button type="button" data-sound="consigli" aria-pressed="false">
+      <button type="button" data-sound="consigli">
         Lo consigli?
       </button>
-      <button type="button" data-sound="dadove" aria-pressed="false">
+      <button type="button" data-sound="dadove">
         Da dove veniamo?
       </button>
     </main>
@@ -94,7 +94,7 @@
           const audio = new Audio(`/sounds/${button.dataset.sound}.mp3`);
 
           audio.addEventListener("ended", () => {
-            button.setAttribute("aria-pressed", "false");
+            button.classList.remove("is-playing");
           });
 
           return [button, audio];
@@ -105,16 +105,16 @@
         button.addEventListener("click", async () => {
           for (const [otherButton, otherAudio] of sounds) {
             otherAudio.pause();
-            otherButton.setAttribute("aria-pressed", "false");
+            otherButton.classList.remove("is-playing");
           }
 
           audio.currentTime = 0;
-          button.setAttribute("aria-pressed", "true");
+          button.classList.add("is-playing");
 
           try {
             await audio.play();
           } catch {
-            button.setAttribute("aria-pressed", "false");
+            button.classList.remove("is-playing");
           }
         });
       }

@@ -34,7 +34,7 @@ button {
   max-width: 15rem;
 }
 
-button[aria-pressed="true"] {
+button.is-playing {
   transform: scale(0.97);
   filter: brightness(0.85);
 }
