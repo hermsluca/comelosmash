@@ -39,6 +39,7 @@ button[aria-pressed="true"] {
   filter: brightness(0.85);
 }
 
+header,
 footer {
   display: flex;
   flex-direction: column;
