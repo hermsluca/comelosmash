@@ -25,4 +25,4 @@ This project now includes a basic Cloudflare Worker setup so it can be deployed 
 3. Deploy:
    `npm run deploy`
 
-The site assets live in the public folder and the Worker entrypoint is in workers-site/index.js.
+The site assets live in the public folder and the Worker entrypoint is in src/index.js.
